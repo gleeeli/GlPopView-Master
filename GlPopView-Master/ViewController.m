@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GlPopView.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+   
+    CGFloat popY = 100;
+    GlPopView *popView = [[GlPopView alloc] initWithFrame:CGRectMake(100, popY + 10, 100, 150)];
+    [self.view addSubview:popView];
 }
 
 

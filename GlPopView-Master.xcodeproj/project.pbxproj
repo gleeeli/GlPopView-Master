@@ -13,6 +13,8 @@
 		695B33B92131447000DD9B2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 695B33B82131447000DD9B2A /* Assets.xcassets */; };
 		695B33BC2131447000DD9B2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695B33BA2131447000DD9B2A /* LaunchScreen.storyboard */; };
 		695B33BF2131447000DD9B2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 695B33BE2131447000DD9B2A /* main.m */; };
+		695B33CC213145A600DD9B2A /* GlPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 695B33C9213145A500DD9B2A /* GlPopView.m */; };
+		695B33CD213145A600DD9B2A /* GlPopViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 695B33CB213145A500DD9B2A /* GlPopViewConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		695B33BB2131447000DD9B2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		695B33BD2131447000DD9B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		695B33BE2131447000DD9B2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		695B33C8213145A500DD9B2A /* GlPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlPopView.h; sourceTree = "<group>"; };
+		695B33C9213145A500DD9B2A /* GlPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlPopView.m; sourceTree = "<group>"; };
+		695B33CA213145A500DD9B2A /* GlPopViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlPopViewConfig.h; sourceTree = "<group>"; };
+		695B33CB213145A500DD9B2A /* GlPopViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlPopViewConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 		695B33AE2131446F00DD9B2A /* GlPopView-Master */ = {
 			isa = PBXGroup;
 			children = (
+				695B33C7213145A500DD9B2A /* GlPopView */,
 				695B33AF2131446F00DD9B2A /* AppDelegate.h */,
 				695B33B02131446F00DD9B2A /* AppDelegate.m */,
 				695B33B22131446F00DD9B2A /* ViewController.h */,
@@ -70,6 +77,17 @@
 			);
 			path = "GlPopView-Master";
 			sourceTree = "<group>";
+		};
+		695B33C7213145A500DD9B2A /* GlPopView */ = {
+			isa = PBXGroup;
+			children = (
+				695B33C8213145A500DD9B2A /* GlPopView.h */,
+				695B33C9213145A500DD9B2A /* GlPopView.m */,
+				695B33CA213145A500DD9B2A /* GlPopViewConfig.h */,
+				695B33CB213145A500DD9B2A /* GlPopViewConfig.m */,
+			);
+			path = GlPopView;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -142,8 +160,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				695B33B42131446F00DD9B2A /* ViewController.m in Sources */,
+				695B33CD213145A600DD9B2A /* GlPopViewConfig.m in Sources */,
 				695B33BF2131447000DD9B2A /* main.m in Sources */,
 				695B33B12131446F00DD9B2A /* AppDelegate.m in Sources */,
+				695B33CC213145A600DD9B2A /* GlPopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
