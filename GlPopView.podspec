@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "GlPopView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.2"
   s.summary      = "A Multiple Func PoP View"
 
   # This description is used to generate tags and improve search results.
@@ -80,7 +80,7 @@ it is a pop good pop view
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/gleeeli/GlPopView-Master.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/gleeeli/GlPopView-Master.git", :tag => "1.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
