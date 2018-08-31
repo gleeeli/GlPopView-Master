@@ -7,7 +7,9 @@
 pod 'GlPopView'
 
 
+
 使用方式：
+
 GlPopView *popView = [[GlPopView alloc] initWithFrame:CGRectMake(10, 110 , 100, 150)];
 
 //箭头朝上
