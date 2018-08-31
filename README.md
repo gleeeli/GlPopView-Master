@@ -11,12 +11,15 @@ pod 'GlPopView'
 GlPopView *popView = [[GlPopView alloc] initWithFrame:CGRectMake(10, 110 , 100, 150)];
 
 //箭头朝上
+
 popView.congfig.directionArrow = GlArrowDirectionTop;
 
 //箭头靠右
+
 popView.congfig.alignmentArrow = GlArrowAlignmentRight;
 
 //箭头顶的水平方向偏移值
+
 popView.congfig.offsetopHorizontalArrow = popView.congfig.widthArrow *0.5;
 
 [self.view addSubview:popView];
