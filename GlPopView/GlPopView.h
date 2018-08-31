@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GlPopViewConfig.h"
 
-@interface GlPopView : UIView
+@interface GlPopView : UIControl
 @property (nonatomic, strong) UIColor *fillColor;
 @property (nonatomic, assign) CGFloat lineWidth;
 @property (nonatomic, assign) UIColor *lineColor;

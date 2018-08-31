@@ -40,31 +40,9 @@
     self.lineColor = [UIColor orangeColor];
     self.cornerRadius = 5.0;
 
-    //self.rectCornerType = UIRectCornerAllCorners;
+    self.rectCornerType = UIRectCornerAllCorners;
     //self.rectCornerType = UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomRight | UIRectCornerBottomLeft;
-    self.rectCornerType = UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomRight;
-    
-    if (self.rectCornerType & UIRectCornerTopLeft) {
-        NSLog(@"左上角 圆角");
-    }
-    
-    if (self.rectCornerType & UIRectCornerTopRight) {
-        NSLog(@"右上角 圆角");
-    }
-    
-    if (self.rectCornerType & UIRectCornerBottomRight) {
-        NSLog(@"右下角 圆角");
-    }
-    else{
-        NSLog(@"右下角 不圆角");
-    }
-    
-    if (self.rectCornerType & UIRectCornerBottomLeft) {
-        NSLog(@"左下角 圆角");
-    }
-    else{
-        NSLog(@"左下角 不圆角");
-    }
+    //self.rectCornerType = UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomRight;
     
     //箭头
     self.congfig = [[GlPopViewConfig alloc] init];
@@ -73,7 +51,8 @@
     self.congfig.radiusArrow = 3;
     self.congfig.directionArrow = GlArrowDirectionLeft;//GlArrowDirectionBottom
     self.congfig.alignmentArrow = GlArrowAlignmentCenter;
-    self.congfig.directionPaddingArrow  = self.congfig.alignmentArrow == GlArrowAlignmentCenter? 0 : 5;
+    self.congfig.paddingDirectionArrow  = self.congfig.alignmentArrow == GlArrowAlignmentCenter? 0 : 5;
+    self.congfig.offsetopHorizontalArrow = 0;
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -136,9 +115,10 @@
     if (self.congfig && self.congfig.directionArrow == GlArrowDirectionRight) {
         
         CGPoint arrowPoint = [self getArrowPointWithDirection:GlArrowDirectionRight width:width height:height];
+        //先画到箭头三角形的底部左边
         [path addLineToPoint:CGPointMake(rlineX, arrowPoint.y - self.congfig.widthArrow * 0.5)];
         CGFloat centAngle = 0;
-        [path addArcWithCenter:CGPointMake(arrowPoint.x - self.congfig.radiusArrow, arrowPoint.y) radius:self.congfig.radiusArrow startAngle:centAngle - M_PI_2 * 0.5 endAngle:centAngle + M_PI_2 * 0.5  clockwise:YES];
+        [path addArcWithCenter:CGPointMake(arrowPoint.x - self.congfig.radiusArrow, arrowPoint.y + self.congfig.offsetopHorizontalArrow) radius:self.congfig.radiusArrow startAngle:centAngle - M_PI_2 * 0.5 endAngle:centAngle + M_PI_2 * 0.5  clockwise:YES];
         [path addLineToPoint:CGPointMake(rlineX, arrowPoint.y + self.congfig.widthArrow * 0.5)];
     }
     
@@ -157,7 +137,7 @@
         CGPoint arrowPoint = [self getArrowPointWithDirection:GlArrowDirectionBottom width:width height:height];
         [path addLineToPoint:CGPointMake(arrowPoint.x + self.congfig.widthArrow * 0.5, blineY)];
         CGFloat centAngle = M_PI_2;
-        [path addArcWithCenter:CGPointMake(arrowPoint.x, arrowPoint.y - self.congfig.radiusArrow) radius:self.congfig.radiusArrow startAngle:centAngle - M_PI_2 * 0.5 endAngle:centAngle + M_PI_2 * 0.5  clockwise:YES];
+        [path addArcWithCenter:CGPointMake(arrowPoint.x + self.congfig.offsetopHorizontalArrow, arrowPoint.y - self.congfig.radiusArrow) radius:self.congfig.radiusArrow startAngle:centAngle - M_PI_2 * 0.5 endAngle:centAngle + M_PI_2 * 0.5  clockwise:YES];
         [path addLineToPoint:CGPointMake(arrowPoint.x - self.congfig.widthArrow * 0.5, blineY)];
     }
     
@@ -177,7 +157,7 @@
         CGPoint arrowPoint = [self getArrowPointWithDirection:GlArrowDirectionLeft width:width height:height];
         [path addLineToPoint:CGPointMake(llineX, arrowPoint.y + self.congfig.widthArrow * 0.5)];
         CGFloat centAngle = M_PI;
-        [path addArcWithCenter:CGPointMake(arrowPoint.x + self.congfig.radiusArrow, arrowPoint.y) radius:self.congfig.radiusArrow startAngle:centAngle - M_PI_2 * 0.5 endAngle:centAngle + M_PI_2 * 0.5  clockwise:YES];
+        [path addArcWithCenter:CGPointMake(arrowPoint.x + self.congfig.radiusArrow, arrowPoint.y + self.congfig.offsetopHorizontalArrow) radius:self.congfig.radiusArrow startAngle:centAngle - M_PI_2 * 0.5 endAngle:centAngle + M_PI_2 * 0.5  clockwise:YES];
         [path addLineToPoint:CGPointMake(llineX, arrowPoint.y - self.congfig.widthArrow * 0.5)];
     }
     
@@ -195,7 +175,7 @@
         CGPoint arrowPoint = [self getArrowPointWithDirection:GlArrowDirectionTop width:width height:height];
         [path addLineToPoint:CGPointMake(arrowPoint.x - self.congfig.widthArrow * 0.5, tlineY)];
         CGFloat centAngle = M_PI * 3.0/2.0;
-        [path addArcWithCenter:CGPointMake(arrowPoint.x, arrowPoint.y + self.congfig.radiusArrow) radius:self.congfig.radiusArrow startAngle:centAngle - M_PI_2 * 0.5 endAngle:centAngle + M_PI_2 * 0.5  clockwise:YES];
+        [path addArcWithCenter:CGPointMake(arrowPoint.x + self.congfig.offsetopHorizontalArrow, arrowPoint.y + self.congfig.radiusArrow) radius:self.congfig.radiusArrow startAngle:centAngle - M_PI_2 * 0.5 endAngle:centAngle + M_PI_2 * 0.5  clockwise:YES];
         [path addLineToPoint:CGPointMake(arrowPoint.x + self.congfig.widthArrow * 0.5, tlineY)];
     }
 
@@ -221,7 +201,7 @@
             switch (self.congfig.alignmentArrow) {
                 case GlArrowAlignmentLeft:
                 {
-                    point = CGPointMake(self.lineWidth + self.cornerRadius + self.congfig.directionPaddingArrow + self.congfig.widthArrow * 0.5, self.lineWidth * 0.5);
+                    point = CGPointMake(self.lineWidth + self.cornerRadius + self.congfig.paddingDirectionArrow + self.congfig.widthArrow * 0.5, self.lineWidth * 0.5);
                 }
                     break;
                 case GlArrowAlignmentCenter:
@@ -231,7 +211,7 @@
                     break;
                 case GlArrowAlignmentRight:
                 {
-                    point = CGPointMake(width - self.lineWidth - self.cornerRadius - self.congfig.directionPaddingArrow - self.congfig.widthArrow * 0.5, self.lineWidth * 0.5);
+                    point = CGPointMake(width - self.lineWidth - self.cornerRadius - self.congfig.paddingDirectionArrow - self.congfig.widthArrow * 0.5, self.lineWidth * 0.5);
                 }
                     break;
                     
@@ -245,7 +225,7 @@
             switch (self.congfig.alignmentArrow) {
                 case GlArrowAlignmentLeft:
                 {
-                    point = CGPointMake(self.lineWidth * 0.5, self.lineWidth + self.cornerRadius + self.congfig.directionPaddingArrow + self.congfig.widthArrow * 0.5);
+                    point = CGPointMake(self.lineWidth * 0.5, self.lineWidth + self.cornerRadius + self.congfig.paddingDirectionArrow + self.congfig.widthArrow * 0.5);
                 }
                     break;
                 case GlArrowAlignmentCenter:
@@ -255,7 +235,7 @@
                     break;
                 case GlArrowAlignmentRight:
                 {
-                    point = CGPointMake(self.lineWidth * 0.5, height - self.lineWidth - self.cornerRadius - self.congfig.directionPaddingArrow - self.congfig.widthArrow * 0.5);
+                    point = CGPointMake(self.lineWidth * 0.5, height - self.lineWidth - self.cornerRadius - self.congfig.paddingDirectionArrow - self.congfig.widthArrow * 0.5);
                 }
                     break;
                     
@@ -269,7 +249,7 @@
             switch (self.congfig.alignmentArrow) {
                 case GlArrowAlignmentLeft:
                 {
-                    point = CGPointMake(self.lineWidth + self.cornerRadius + self.congfig.directionPaddingArrow + self.congfig.widthArrow * 0.5, height - self.lineWidth * 0.5);
+                    point = CGPointMake(self.lineWidth + self.cornerRadius + self.congfig.paddingDirectionArrow + self.congfig.widthArrow * 0.5, height - self.lineWidth * 0.5);
                 }
                     break;
                 case GlArrowAlignmentCenter:
@@ -279,7 +259,7 @@
                     break;
                 case GlArrowAlignmentRight:
                 {
-                    point = CGPointMake(width - self.lineWidth - self.cornerRadius - self.congfig.directionPaddingArrow - self.congfig.widthArrow * 0.5, height - self.lineWidth * 0.5);
+                    point = CGPointMake(width - self.lineWidth - self.cornerRadius - self.congfig.paddingDirectionArrow - self.congfig.widthArrow * 0.5, height - self.lineWidth * 0.5);
                 }
                     break;
                     
@@ -293,7 +273,7 @@
             switch (self.congfig.alignmentArrow) {
                 case GlArrowAlignmentLeft:
                 {
-                    point = CGPointMake(width  - self.lineWidth * 0.5, self.lineWidth + self.cornerRadius + self.congfig.directionPaddingArrow + self.congfig.widthArrow * 0.5);
+                    point = CGPointMake(width  - self.lineWidth * 0.5, self.lineWidth + self.cornerRadius + self.congfig.paddingDirectionArrow + self.congfig.widthArrow * 0.5);
                 }
                     break;
                 case GlArrowAlignmentCenter:
@@ -303,7 +283,7 @@
                     break;
                 case GlArrowAlignmentRight:
                 {
-                    point = CGPointMake(width  - self.lineWidth * 0.5, height - self.lineWidth - self.cornerRadius - self.congfig.directionPaddingArrow - self.congfig.widthArrow * 0.5);
+                    point = CGPointMake(width  - self.lineWidth * 0.5, height - self.lineWidth - self.cornerRadius - self.congfig.paddingDirectionArrow - self.congfig.widthArrow * 0.5);
                 }
                     break;
                     
