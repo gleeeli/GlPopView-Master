@@ -27,7 +27,8 @@ popView.congfig.offsetopHorizontalArrow = popView.congfig.widthArrow *0.5;
 [self.view addSubview:popView];
 
 
-注意！！！初始化完，后期要更新请使用：[glChartView setNeedsDisplay];
+
+注意！！！初始化完，后期更改属性，要手动更新请使用：[glChartView setNeedsDisplay];
 
 
 
