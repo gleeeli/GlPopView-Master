@@ -33,7 +33,7 @@ typedef enum : NSUInteger {
 //箭头位置
 @property (nonatomic, assign) GlArrowAlignment alignmentArrow;
 
-//间距 可调节箭头位置 注意！当属性alignmentArrow 为GlArrowAlignmentCenter时此属性无效
+//间距 可调节箭头位置
 @property (nonatomic, assign) CGFloat paddingDirectionArrow;
 
 @property (nonatomic, assign) CGFloat offsetopHorizontalArrow;//箭头顶部水平方向偏移值

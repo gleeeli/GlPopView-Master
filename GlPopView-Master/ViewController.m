@@ -50,6 +50,13 @@
     popView4.fillColor = [UIColor colorWithRed:58/255.0 green:176/255.0 blue:252/255.0 alpha:1];
     popView4.lineColor = [UIColor redColor];
     [self.view addSubview:popView4];
+    
+    CGFloat popY4 = CGRectGetMaxY(popView4.frame);
+    GlPopView *popView5 = [[GlPopView alloc] initWithFrame:CGRectMake(popX3, popY4 + 10, 100, 150)];
+    popView5.congfig.directionArrow = GlArrowDirectionBottom;
+    popView5.congfig.alignmentArrow = GlArrowAlignmentCenter;
+    popView5.congfig.paddingDirectionArrow = -15;
+    [self.view addSubview:popView5];
 }
 
 
